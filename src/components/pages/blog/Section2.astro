@@ -1,0 +1,19 @@
+---
+import BlogPostCard from "../../ui/BlogPostCard.astro";
+import { formatBlogPosts } from "../../../scripts";
+const posts = await Astro.glob("../../../pages/blog/*.md");
+const formattedPosts = formatBlogPosts(posts)
+---
+
+<article class="flex flex-col items-center gap-[32px]">
+  <h2 class="text-[32px] md:text-[40px] xl:text-[64px] text-center font-bold">Nuestras publicaciones</h2>
+  <section class="flex justify-center gap-[8px]">
+    <ul class=" flex flex-col gap-[32px] w-[100%] xl:w-[70%]">
+      {
+        formattedPosts.map((post) => {
+          return <BlogPostCard frontmatter={post.frontmatter} url={post.url} />;
+        })
+      }
+    </ul>
+  </section>
+</article>

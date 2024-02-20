@@ -1,0 +1,110 @@
+<header class="bg-[#f1f1f1] py-4 px-4 rounded-[64px]">
+  <nav class="container mx-auto flex flex-wrap items-center justify-between">
+    <a href="/" class="text-gray-900 font-bold mr-4">
+      <img src="/icon/favicon.svg" alt="Logo" class="w-10 h-10" />
+    </a>
+    <!-- Botón del menú que se muestra solo en pantallas pequeñas -->
+    <button id="menuButton" class="sm:hidden" onclick="toggleModal()">
+      <img src="/img/Menu.svg" alt="" />
+    </button>
+    <!-- Enlaces de navegación que se muestran en pantallas medianas y superiores -->
+    <ul id="navLinks" class="hidden sm:flex flex-row items-center list-none">
+      <li>
+        <a href="/" class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Sobre nosotros
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Contacto
+        </a>
+      </li>
+      <li>
+        <a
+          href="/gycp"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+        >
+          GYCP
+        </a>
+      </li>
+      <li>
+        <a
+          href="/blog"
+          class="flex items-center justify-center bg-[#252525] text-white ml-3 py-2 px-4 rounded-3xl"
+          >Blog&nbsp;&nbsp;&nbsp;⭢
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Modal para pantallas pequeñas -->
+  <div
+    id="modal"
+    class="fixed top-0 right-0 bottom-0 left-0 z-50 flex items-center justify-end bg-black bg-opacity-50"
+    style="display: none;"
+  >
+    <ul class="flex flex-col space-y-4 bg-white py-[64px] px-[32px] h-screen">
+      <li>
+        <a href="/" class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Sobre nosotros
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+          >Contacto
+        </a>
+      </li>
+      <li>
+        <a
+          href="/gycp"
+          class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+        >
+          GYCP
+        </a>
+      </li>
+      <li>
+        <a
+          href="/blog"
+          class="flex items-center justify-center bg-[#252525] text-white ml-3 py-2 px-4 rounded-3xl"
+          >Blog&nbsp;&nbsp;&nbsp;⭢
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script is:inline>
+  let isModalOpen = false;
+  const toggleModal = () => {
+    isModalOpen = !isModalOpen;
+    updateModalVisibility();
+  };
+  const updateModalVisibility = () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = isModalOpen ? "flex" : "none";
+  };
+  document.addEventListener("click", function (event) {
+    var modal = document.getElementById("modal");
+    if (event.target == modal) {
+      isModalOpen = false;
+      updateModalVisibility();
+    }
+  });
+</script>

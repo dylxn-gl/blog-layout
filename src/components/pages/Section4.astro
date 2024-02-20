@@ -1,0 +1,30 @@
+---
+import authors from '../../info/authors'
+---
+
+<article class="flex flex-col items-center gap-[32px]">
+  <h2 class="text-[32px] md:text-[40px] xl:text-[64px] text-center font-bold">Nuestro equipo</h2>
+  <ul class="flex flex-col md:flex-col xl:flex-row flex-wrap justify-center gap-[32px]">
+    {
+      authors.map((info) => {
+        return (
+          <li class="max-w-[360px]">
+            <section class="flex items-center gap-[32px]  p-[32px] h-[100%] rounded-xl ">
+              <img src={info.photo} alt="" width="50%" height="50%" class="rounded-[50%]"/>
+              <div class="flex flex-col gap-[8px] w-[100%]">
+                <h3 class="text-[24px] font-[600]">{info.nombre}</h3>
+                <p class="text-[16px]">{info.cargo}</p>
+                <a
+                  href={`/author/${info.nombre.toLocaleLowerCase()}`}
+                  class="flex items-center rounded-3xl text-[#d9d9d9]"
+                >
+                  Conoce mas&nbsp;&nbsp;&nbsp;⭢
+                </a>
+              </div>
+            </section>
+          </li>
+        );
+      })
+    }
+  </ul>
+</article>

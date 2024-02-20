@@ -1,0 +1,29 @@
+---
+import SecondLayout from "../layouts/SecondLayout.astro";
+---
+
+<SecondLayout title="404 | Semillero Abellista">
+  <article class="flex flex-col items-center">
+    <img width="350px" src="/img/404.png" alt="" />
+    <section class="flex flex-col items-center gap-[16px]">
+      <h1 class="text-[64px] font-bold text-center">Estas perdido?¿</h1>
+      <ul class="flex flex-row items-center list-none">
+        <li>
+          <a
+            href="/"
+            class="flex items-center justify-center bg-[#c7ddb5] text-black ml-3 py-2 px-4 rounded-3xl"
+            >Home
+          </a>
+        </li>
+        <li>
+            <a
+              href="/blog"
+              class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+            >
+              Blog&nbsp;&nbsp;&nbsp;⭢
+            </a>
+          </li>
+      </ul>
+    </section>
+  </article>
+</SecondLayout>

@@ -1,0 +1,75 @@
+---
+import SecondLayout from "../layouts/SecondLayout.astro";
+---
+
+<SecondLayout title="Contact | Semillero Abellista">
+  <section class="flex flex-col items-center gap-[16px]">
+    <h1 class="text-[32px] md:text-[40px] xl:text-[64px] text-center xl:text-left font-bold leading-none">Contactanos</h1>
+    <form id="contact-form" class="flex flex-col gap-[8px] w-[90%] md:w-[70%]">
+      <section class="flex w-[100%] flex-col xl:flex-row gap-[8px]">
+        <input
+          type="text"
+          id="name"
+          placeholder="Nombre"
+          required
+          class="flex items-center justify-center bg-[#f1f1f1] text-black ml-3 py-2 px-4 rounded-xl w-[99%]"
+        />
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Número de teléfono"
+          required
+          class="flex items-center justify-center bg-[#f1f1f1] text-black ml-3 py-2 px-4 rounded-xl w-[99%]"
+        />
+      </section>
+      <input
+        type="text"
+        id="institution"
+        placeholder="Institución"
+        required
+        class="flex items-center justify-center bg-[#f1f1f1] text-black ml-3 py-2 px-4 rounded-xl w-[99%]"
+      />
+      <textarea
+        id="message"
+        placeholder="Mensaje"
+        required
+        class="flex items-center justify-center bg-[#f1f1f1] text-black ml-3 py-2 px-4 rounded-xl w-[99%] min-h-[125px] max-h-[125px]"
+      ></textarea>
+      <button
+        type="submit"
+        class="flex items-center justify-center bg-[#c7ddb5] text-black ml-3 py-2 px-4 rounded-xl w-[99%]"
+        >Enviar</button
+      >
+    </form>
+  </section>
+
+  <script type="module">
+    import emailjs from "https://cdn.skypack.dev/emailjs-com";
+    emailjs.init("ufjBxZiEgyN9PahBs");
+
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const institution = document.getElementById("institution").value;
+        const phone = document.getElementById("phone").value;
+        const message = document.getElementById("message").value;
+
+        emailjs
+          .send("service_8jpsdmo", "template_9k8zknr", {
+            name: name,
+            institution: institution,
+            phone: phone,
+            message: message,
+          })
+          .then((response) => {
+            alert("Correo enviado exitosamente");
+          })
+          .catch((error) => {
+            alert("Error al enviar el correo, Intenta nuevamente");
+          });
+      });
+  </script>
+</SecondLayout>

@@ -1,0 +1,20 @@
+---
+import { formatDate } from "../../scripts";
+
+const { frontmatter, url, index } = Astro.props;
+const { title, date, author, image, description, category } = frontmatter;
+---
+
+<li class="max-w-[380px] rounded-xl  border border-[#d9d9d9] hover:bg-[#fafafa]">
+  <a href={url} class="flex gap-[16px] p-[32px]">
+    <p class="text-[32px] font-bold text-[#d9d9d9]">0{index + 1}</p>
+    <section
+      class="flex flex-col gap-[8px] h-[100%]"
+    >
+      <img src="" alt="" width="60px" />
+      <p class="text-[16px]">{author}</p>
+      <h3 class="text-[20px] font-bold">{title}</h3>
+      <p class="text-[16px]">{formatDate(date)}</p>
+    </section>
+  </a>
+</li>

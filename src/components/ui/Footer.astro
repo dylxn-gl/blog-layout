@@ -1,0 +1,36 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#f1f1f1] py-8 px-8 md:px-16 xl:px-32">
+    <nav class="container mx-auto flex flex-col xl:flex-row gap-[8px] items-center justify-center xl:justify-between">
+      <a href="/" class="text-gray-900 font-bold mr-4 w-[auto] xl:w-[213px]">
+        <img src="/icon/favicon.svg" alt="Logo" class="w-10 h-10" />
+      </a>
+      <p class="font-bold">©{year} Empresa</p>
+      <ul class="flex flex-row items-center list-none">
+        <li>
+          <a
+            href="/"
+            class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+            >Facebook
+          </a>
+        </li>
+        <li>
+          <a
+            href="/sobre-nosotros"
+            class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+            >Instagram
+          </a>
+        </li>
+        <li>
+          <a
+            href="/contacto"
+            class="text-black hover:text-gray-900 px-3 py-2 rounded-md"
+            >Whatsapp
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  

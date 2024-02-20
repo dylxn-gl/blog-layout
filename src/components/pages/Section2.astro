@@ -1,0 +1,22 @@
+---
+import objetives from "../../info/objetives";
+---
+
+<article class="flex flex-col items-center gap-[32px]">
+  <h2 class="text-[32px] md:text-[40px] xl:text-[64px] text-center font-bold">Titulo</h2>
+  <ul class="flex flex-col md:flex-col xl:flex-row gap-[32px]">
+    {
+      objetives.map((info) => {
+        return (
+          <li class="w-[100%]">
+            <section class="flex flex-col items-center gap-[8px] p-[32px] h-[100%] rounded-xl bg-[#f1f1f1]">
+              <img src={info.icon} alt="" width="60px" />
+              <h3 class="text-[24px] font-[600] text-center">{info.title}</h3>
+              <p class="text-[16px] text-center">{info.description}</p>
+            </section>
+          </li>
+        );
+      })
+    }
+  </ul>
+</article>
